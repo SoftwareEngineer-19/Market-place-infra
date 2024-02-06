@@ -1,4 +1,4 @@
-name: "01IAMR"
+name: "SE-marketf-low"
 on:
   workflow_dispatch:
 
