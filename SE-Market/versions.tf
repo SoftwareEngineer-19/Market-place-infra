@@ -10,19 +10,17 @@ terraform {
       version = "~> 3.4.3"
     }
   }
+  backend "remote" {
+		hostname = "app.terraform.io"
+		organization = "AWS-Architet-org"
 
-  required_version = ">= 1.2.0"
+		workspaces {
+			name = "Marketplace-QA"
+		}
+	}
 }
 
 provider "aws" {
-  region = "ap-south-1"
-}
+	region = "us-east-1"
 
-terraform {
-  backend "s3" {
-    bucket         = "marketplace-qa-remotestate"
-    key            = "infrastructure/newqa/terraform.tfstate"
-    region         = "ap-south-1"
-    dynamodb_table = "tf.backend"
-  }
 }

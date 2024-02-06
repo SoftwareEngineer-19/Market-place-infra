@@ -3,23 +3,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  Plan_Dev:
-    if: github.ref == 'refs/heads/FeatureBranch1'
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_plan.yml@FeatureBranch1
+  Plan_qa:
+    if: github.ref == 'refs/heads/qa'
+    uses: SoftwareEngineer-19/Market-place-infra/.github/workflows/aws_tf_plan.yml@qa
     with:
-      path: IAMRoles
-      tf_vars_file: dev.tfvars
-      gh_environment: dev
+      path: SE-Market
+      tf_vars_file: qa.tfvars
+      gh_environment: qa
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
   Deploy_Dev:
-    needs: Plan_Dev
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_appy.yml@FeatureBranch1
+    needs: Plan_qa
+    uses: SoftwareEngineer-19/Market-place-infra/.github/workflows/aws_tf_plan.yml@qa
     with:
-      path: IAMRoles
-      tf_vars_file: dev.tfvars
-      gh_environment: dev
+      path: SE-Market
+      tf_vars_file: qa.tfvars
+      gh_environment: qa
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
