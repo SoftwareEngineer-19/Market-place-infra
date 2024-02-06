@@ -1,4 +1,4 @@
-name: "SE-marketf-low"
+name: "se_market_flow"
 on:
   workflow_dispatch:
 
