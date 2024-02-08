@@ -15,7 +15,7 @@ jobs:
 
   Deploy_Dev:
     needs: Plan_qa
-    uses: SoftwareEngineer-19/Market-place-infra/.github/workflows/aws_tf_plan.yml@qa
+    uses: SoftwareEngineer-19/Market-place-infra/.github/workflows/aws_tf_apply.yml@qa
     with:
       path: SE-Market
       tf_vars_file: qa.tfvars
