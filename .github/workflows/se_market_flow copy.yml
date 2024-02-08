@@ -1,0 +1,16 @@
+name: "se_market_flow"
+on:
+  workflow_dispatch:
+
+jobs:
+  
+  Destroy_qa:
+    uses: SoftwareEngineer-19/Market-place-infra/.github/workflows/aws_tf_destroy.yml@qa
+    with:
+      path: SE-Market
+      tf_vars_file: qa.tfvars
+      gh_environment: qa
+    secrets:
+      cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+

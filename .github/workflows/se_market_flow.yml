@@ -13,15 +13,25 @@ jobs:
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-  Deploy_Dev:
+  Deploy_qa:
     needs: Plan_qa
-    uses: SoftwareEngineer-19/Market-place-infra/.github/workflows/aws_tf_plan.yml@qa
+    uses: SoftwareEngineer-19/Market-place-infra/.github/workflows/aws_tf_apply.yml@qa
     with:
       path: SE-Market
       tf_vars_file: qa.tfvars
       gh_environment: qa
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+  Destroy_qa:
+    uses: SoftwareEngineer-19/Market-place-infra/.github/workflows/aws_tf_destroy.yml@qa
+    with:
+      path: SE-Market
+      tf_vars_file: qa.tfvars
+      gh_environment: qa
+    secrets:
+      cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
 
   Plan_Uat:
     if: github.ref == 'refs/heads/main'
