@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "basic-dynamodb-table" {
-  name           = "Marketpalce-terraform"
+  name           = "Marketpalce-terraformaaaaa"
   billing_mode   = "PROVISIONED"
   read_capacity  = 1
   write_capacity = 1

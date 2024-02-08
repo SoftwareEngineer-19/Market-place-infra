@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "site_origin" {
-  bucket = "www.newse.test.example.com"
+  bucket = "www.newsenewwww.test.example.com"
 
   tags = {
     Environment = "qa"
