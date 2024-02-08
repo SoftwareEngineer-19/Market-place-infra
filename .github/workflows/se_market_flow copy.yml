@@ -1,4 +1,4 @@
-name: "se_market_flow"
+name: "se_market_destroy_flow"
 on:
   workflow_dispatch:
 
